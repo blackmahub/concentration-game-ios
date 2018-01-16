@@ -88,11 +88,14 @@ class ViewController: UIViewController {
             flipCountLabel.isHidden = true
             
             gameOverLabel.isHidden = false
+            self.view.bringSubview(toFront: gameOverLabel)
             
             totalFlipsLabel.text = "Total Flips: \(flipCount)"
             totalFlipsLabel.isHidden = false
             
-            successRateLabel.text = "Success Rate: \(Double(cardButtons.count) / Double(flipCount) * 100.00)%"
+            var successRate = Double(cardButtons.count) / Double(flipCount) * 100.00
+            successRate = (successRate * 100.00).rounded() / 100.00
+            successRateLabel.text = "Success Rate: \(successRate)%"
             successRateLabel.isHidden = false
         }
     }
